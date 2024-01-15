@@ -6,7 +6,7 @@ import { steamItems } from "~/utils/dummyData";
 	<SectionHeading :section="sections['hot-items']" />
 	<div class="flex gap-4 flex-wrap">
 		<ClientOnly>
-			<ItemCard v-for="item in steamItems" :steamItem="item" />
+			<ItemCard v-for="item in steamItems" :steam-item="item" />
 		</ClientOnly>
 	</div>
 </template>

@@ -31,8 +31,14 @@ const props = defineProps({
 			-
 			<p class="opacity-70">RUB {{ steamItem.price }}0</p>
 		</div>
-		<template #footer v-if="appConfig.isMobile">
-			<ItemTabs :steam-item="steamItem" />
+		<template #footer>
+			<ItemTabs v-if="appConfig.isMobile" :steam-item="steamItem" />
+			<div v-else class="flex gap-4">
+				<ItemCalculator :steam-item="steamItem" />
+				<UTooltip text="Add to favorites">
+					<UButton leading-icon="i-heroicons-heart" />
+				</UTooltip>
+			</div>
 		</template>
 	</UCard>
 </template>
