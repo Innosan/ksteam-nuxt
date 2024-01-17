@@ -7,6 +7,8 @@ export default defineNuxtConfig({
 		"@formkit/auto-animate/nuxt",
 		"@pinia/nuxt",
 		"vue3-carousel-nuxt",
+		"@hypernym/nuxt-gsap",
+		"@pinia-plugin-persistedstate/nuxt",
 	],
 
 	components: [

@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
-import type { SteamItem } from "~/types/SteamItem";
+import { type ConvertedPrice, type SteamItem } from "~/types/SteamItem";
 
 import { itemTabs } from "~/utils/itemTabs";
 
 const props = defineProps({
 	steamItem: {
 		type: Object as PropType<SteamItem>,
+		required: true,
+	},
+	convertedPrice: {
+		type: Object as PropType<ConvertedPrice>,
 		required: true,
 	},
 });
@@ -46,12 +50,12 @@ const props = defineProps({
 			</UCard>
 			<UCard v-else-if="tabItem.key === 'prices'">
 				<div class="flex gap-4">
-					<UBadge> ${{ steamItem.price }} </UBadge>
+					<UBadge> ${{ convertedPrice.dollar.toFixed(2) }} </UBadge>
 					<UBadge class="opacity-70 hover:opacity-100 transition-all"
-						>{{ Number(steamItem.price) * 80 }}₽</UBadge
+						>{{ convertedPrice.rouble.toFixed(2) }}₽</UBadge
 					>
 					<UBadge class="opacity-70 hover:opacity-100 transition-all"
-						>{{ Number(steamItem.price) * 220 }}₸</UBadge
+						>{{ convertedPrice.tenge.toFixed(2) }}₸</UBadge
 					>
 				</div>
 			</UCard>

@@ -6,7 +6,7 @@ export const itemTabs = [
 	},
 	{
 		key: "prices",
-		label: "Prices",
+		label: "Sell Prices",
 		icon: "i-heroicons-currency-dollar-solid",
 	},
 ];

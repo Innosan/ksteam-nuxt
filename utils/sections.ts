@@ -6,4 +6,9 @@ export const sections = {
 		description: "Top items from Steam Market",
 		icon: "i-heroicons-fire-20-solid",
 	},
+	favorite: <Section>{
+		title: "Favorite",
+		description: "Only Yours favorite",
+		icon: "i-heroicons-heart-solid",
+	},
 };

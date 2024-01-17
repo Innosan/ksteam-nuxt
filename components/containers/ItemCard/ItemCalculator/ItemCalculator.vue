@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
-import type { SteamItem } from "~/types/SteamItem";
-import { getConvertedItemPrice } from "~/types/Currency";
+import type { ConvertedPrice, SteamItem } from "~/types/SteamItem";
+
 import { useMarketItemsStore } from "~/stores/marketItemsStore";
 
 const marketItemsStore = useMarketItemsStore();
@@ -11,17 +11,15 @@ const props = defineProps({
 		type: Object as PropType<SteamItem>,
 		required: true,
 	},
+	convertedPrice: {
+		type: Object as PropType<ConvertedPrice>,
+		required: true,
+	},
 });
 
 const isOpen = ref(false);
 
-const availableBudget = ref(1000);
-
-const availableCases = computed(() => {
-	return Math.floor(
-		availableBudget.value / getConvertedItemPrice(props.steamItem.price),
-	);
-});
+const availableBudget = ref(500);
 </script>
 
 <template>
@@ -55,9 +53,10 @@ const availableCases = computed(() => {
 			</template>
 
 			<!-- Calculator window -->
-			<div>
+			<div class="flex">
 				<UFormGroup label="Available budget">
 					<UInput
+						type="number"
 						placeholder="Enter value.."
 						v-model="availableBudget"
 					>
@@ -77,19 +76,10 @@ const availableCases = computed(() => {
 			/>
 
 			<!-- Summary -->
-			<div class="self-center">
-				<p>
-					{{ getConvertedItemPrice(steamItem.price).toFixed(2) }}₽ x
-					{{ availableCases }}
-					=
-					{{
-						(
-							getConvertedItemPrice(steamItem.price) *
-							availableCases
-						).toFixed(2)
-					}}
-				</p>
-			</div>
+			<SummaryCard
+				:converted-price="convertedPrice"
+				:available-budget="availableBudget"
+			/>
 
 			<!-- Available options -->
 			<template #footer>
@@ -106,6 +96,9 @@ const availableCases = computed(() => {
 						v-for="item in marketItemsStore.marketItems"
 						:market-item="item"
 					/>
+				</div>
+				<div v-else-if="!marketItemsStore.marketItems.status">
+					<p>Error occurred!</p>
 				</div>
 				<UButton
 					v-else

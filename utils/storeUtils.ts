@@ -9,7 +9,5 @@ export async function fetchData(route: string, itemToFetch: string = "") {
 		},
 	);
 
-	console.log(allData.value);
-
 	return allData.value;
 }

@@ -9,9 +9,9 @@ export const navigation: NavigationLink[] = [
 	},
 	{
 		id: 2,
-		to: "/about",
-		label: "About",
-		icon: "i-heroicons-information-circle-solid",
+		to: "/favorite",
+		label: "Favorite",
+		icon: "i-heroicons-heart-solid",
 	},
 	{
 		id: 3,
