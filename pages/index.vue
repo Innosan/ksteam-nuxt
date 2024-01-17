@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { steamItems } from "~/utils/dummyData";
+import { useHotItemsStore } from "~/stores/hotItemsStore";
+
+const hotItemsStore = useHotItemsStore();
+hotItemsStore.fetchHotItems();
 </script>
 
 <template>
 	<SectionHeading :section="sections['hot-items']" />
-	<div class="flex gap-4 flex-wrap">
-		<ClientOnly>
-			<ItemCard v-for="item in steamItems" :steam-item="item" />
-		</ClientOnly>
-	</div>
-</template>
 
-<style scoped></style>
+	<ClientOnly>
+		<USkeleton v-if="hotItemsStore.isItemsFetching" class="w-96 h-12" />
+		<HotItemsCarousel v-else />
+	</ClientOnly>
+</template>

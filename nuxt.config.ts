@@ -2,7 +2,12 @@
 export default defineNuxtConfig({
 	devtools: { enabled: true },
 
-	modules: ["@nuxt/ui", "@formkit/auto-animate/nuxt", "@pinia/nuxt"],
+	modules: [
+		"@nuxt/ui",
+		"@formkit/auto-animate/nuxt",
+		"@pinia/nuxt",
+		"vue3-carousel-nuxt",
+	],
 
 	components: [
 		{
@@ -10,6 +15,10 @@ export default defineNuxtConfig({
 			pathPrefix: false,
 		},
 	],
+
+	carousel: {
+		prefix: "Vue",
+	},
 
 	css: ["~/assets/styles/main.css"],
 });

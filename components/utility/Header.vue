@@ -9,6 +9,7 @@ const transformedNavigation = navigation.map(({ id, ...rest }) => [rest]);
 			<h1 class="font-black text-2xl text-primary">KSteam Prices</h1>
 			<TopNavigation v-if="!appConfig.isMobile" :links="navigation" />
 			<BurgerNavigation v-else :links="transformedNavigation" />
+			<CurrencyCard />
 		</div>
 		<div class="flex gap-4 items-center">
 			<ThemeSwitch />
