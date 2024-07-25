@@ -1,6 +1,12 @@
 header, footer div, .page-container {
-	width: 90vw;
+	width: 90%;
 	margin: 0 auto;
+}
+
+@media (max-width: 400px) {
+	header, footer div, .page-container {
+		width: 80%;
+	}
 }
 
 .page-container {

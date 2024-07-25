@@ -14,8 +14,17 @@ dependencies:
   '@pinia/nuxt':
     specifier: ^0.5.1
     version: 0.5.1(vue@3.4.11)
+  vue3-carousel-nuxt:
+    specifier: ^1.1.0
+    version: 1.1.0(vue@3.4.11)
 
 devDependencies:
+  '@hypernym/nuxt-gsap':
+    specifier: ^2.4.2
+    version: 2.4.2
+  '@pinia-plugin-persistedstate/nuxt':
+    specifier: ^1.2.0
+    version: 1.2.0(@pinia/nuxt@0.5.1)(pinia@2.1.7)
   nuxt:
     specifier: ^3.9.1
     version: 3.9.1(sass@1.69.7)(vite@5.0.11)
@@ -617,6 +626,12 @@ packages:
       '@tanstack/vue-virtual': 3.0.1(vue@3.4.11)
       vue: 3.4.11
     dev: false
+
+  /@hypernym/nuxt-gsap@2.4.2:
+    resolution: {integrity: sha512-Oep+0ABn58PbJo4tX8A8ja2hGjjBtyFE7DJAF/q8DIDGXMFaZlTbvcreCmMdKhuJ5NR8ODE0fEObUEYci901gg==}
+    dependencies:
+      gsap: 3.12.4
+    dev: true
 
   /@iconify-json/heroicons@1.1.19:
     resolution: {integrity: sha512-uW2F9vdGll59W21ocBl+wR4Ve+/1CsmzBqPTuOaR3CbKzqnJKwzGASvC4Op0uTieFVWfBaevnzcRxwNo73J29g==}
@@ -1267,6 +1282,21 @@ packages:
       '@parcel/watcher-win32-ia32': 2.3.0
       '@parcel/watcher-win32-x64': 2.3.0
 
+  /@pinia-plugin-persistedstate/nuxt@1.2.0(@pinia/nuxt@0.5.1)(pinia@2.1.7):
+    resolution: {integrity: sha512-2rtgx5viGSMQMCoFYZMHguA2FhFKCUvw0PwETfqQegsWeBHlqk1/D0G/9xqep8Hq+c1BuFx+jNLJzoLXtYfivg==}
+    peerDependencies:
+      '@pinia/nuxt': ^0.5.0
+    dependencies:
+      '@nuxt/kit': 3.9.1
+      '@pinia/nuxt': 0.5.1(vue@3.4.11)
+      defu: 6.1.4
+      pinia-plugin-persistedstate: 3.2.1(pinia@2.1.7)
+    transitivePeerDependencies:
+      - pinia
+      - rollup
+      - supports-color
+    dev: true
+
   /@pinia/nuxt@0.5.1(vue@3.4.11):
     resolution: {integrity: sha512-6wT6TqY81n+7/x3Yhf0yfaJVKkZU42AGqOR0T3+UvChcaOJhSma7OWPN64v+ptYlznat+fS1VTwNAcbi2lzHnw==}
     dependencies:
@@ -1278,7 +1308,6 @@ packages:
       - supports-color
       - typescript
       - vue
-    dev: false
 
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -3111,6 +3140,10 @@ packages:
   /graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
+  /gsap@3.12.4:
+    resolution: {integrity: sha512-1ByAq8dD0W4aBZ/JArgaQvc0gyUfkGkP8mgAQa0qZGdpOKlSOhOf+WNXjoLimKaKG3Z4Iu6DKZtnyszqQeyqWQ==}
+    dev: true
+
   /gzip-size@7.0.0:
     resolution: {integrity: sha512-O1Ld7Dr+nqPnmGpdhzLmMTQ4vAsD+rHwMm1NLUmoUFFymBOMKxCCrtDxqdBRYXdeEPEi3SyoR4TizJLQrnKBNA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -4576,6 +4609,14 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  /pinia-plugin-persistedstate@3.2.1(pinia@2.1.7):
+    resolution: {integrity: sha512-MK++8LRUsGF7r45PjBFES82ISnPzyO6IZx3CH5vyPseFLZCk1g2kgx6l/nW8pEBKxxd4do0P6bJw+mUSZIEZUQ==}
+    peerDependencies:
+      pinia: ^2.0.0
+    dependencies:
+      pinia: 2.1.7(vue@3.4.11)
+    dev: true
+
   /pinia@2.1.7(vue@3.4.11):
     resolution: {integrity: sha512-+C2AHFtcFqjPih0zpYuvof37SFxMQ7OEG2zV9jRI12i9BOy3YQVAHwdKtyyc8pDcDyIc33WCIsZaCFWU7WWxGQ==}
     peerDependencies:
@@ -4591,7 +4632,6 @@ packages:
       '@vue/devtools-api': 6.5.1
       vue: 3.4.11
       vue-demi: 0.14.6(vue@3.4.11)
-    dev: false
 
   /pirates@4.0.6:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
@@ -6143,7 +6183,6 @@ packages:
         optional: true
     dependencies:
       vue: 3.4.11
-    dev: false
 
   /vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}
@@ -6155,6 +6194,25 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.5.1
       vue: 3.4.11
+
+  /vue3-carousel-nuxt@1.1.0(vue@3.4.11):
+    resolution: {integrity: sha512-l5nyzKi4PhFVRuopnNUvnPD4fOZ6vpLPH/RCwKcC+35sDmWPvTjpkSs6ondkiAHAgOX61LHoOB9WBJb8CRIdkQ==}
+    dependencies:
+      '@nuxt/kit': 3.9.1
+      vue3-carousel: 0.3.1(vue@3.4.11)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+      - vue
+    dev: false
+
+  /vue3-carousel@0.3.1(vue@3.4.11):
+    resolution: {integrity: sha512-86vUkNPBzL2PVuR9w6hUsI90ccFjLp+K8cSFpRTISf+SjUQY3fMHc5CFF5MUL62v1xYYm27zEBmQupO9VQx9Kw==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: 3.4.11
+    dev: false
 
   /vue@3.4.11:
     resolution: {integrity: sha512-iaA98z14ZrrVJlclpHX/HCNeacbMOLdX5foYN7/vt4cHFhDkBRzojjbLQZ2UDRAeNV1v4V5I21+QpdCXWlpG5Q==}
